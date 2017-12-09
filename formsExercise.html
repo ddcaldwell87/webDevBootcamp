@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forms Exercise</title>
+  </head>
+  <body>
+    
+    <h1>Register</h1>
+    
+    <form>
+      <label for="firstName">First Name:</label>
+      <input name="firstName" id="firstName" type="text" placeholder="John" required>
+      <label for="lastName">Last Name:</label>
+      <input name="lastName" id="lastName" type="text" placeholder="Smith" required>
+      
+      <br>
+      
+      <label for="male">Male</label>
+      <input name="gender" id="male" type="radio" value="Male">
+      <label for="female">Female</label>
+      <input name="gender" id="female" type="radio" value="Female">
+      <label for="other">Other</label>
+      <input name="gender" id="other" type="radio" value="Other">
+      
+      <br>
+      
+      <label for="email">Email:</label>
+      <input id="email" type="email" placeholder="your email" required>
+      <label for="password">Password:</label>
+      <input id="password" type="password" placeholder="your password" pattern=".{5,10}" required title="Password must be between 5 and 10 characters">
+      
+      <br>
+      
+      <label for="birthday">Birthday:</label>
+      <select name="month" id="birthday">
+        <option value="Month">Month</option>
+        <option value="January">January</option>
+        <option value="Feburary">Feburary</option>
+        <option value="March">March</option>
+      </select>
+      <select name="day" id="birthday">
+        <option value="Day">Day</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      <select name="year" id="birthday">
+        <option value="Year">Year</option>
+        <option value="2017">2017</option>
+        <option value="2016">2016</option>
+        <option value="2015">2015</option>
+      </select>
+      
+      <br>
+      
+      <label for="tos">I agree to the terms and conditions</label>
+      <input type="checkbox" required>
+      
+      <br>
+      
+      <button>Submit</button>
+    </form>
+    
+  </body>
+</html>

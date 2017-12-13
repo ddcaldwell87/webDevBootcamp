@@ -1,3 +1,6 @@
+//All algorithms written without looking at solutions
+//***************************************
+
 function printReverse(arr){
 	//reverse the array and log each index
 	arr.reverse().forEach(function(el){

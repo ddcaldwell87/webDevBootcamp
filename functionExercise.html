@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+ 
+ <script>
+
+//		function isEven(x) {
+//			if(x % 2 === 0) {
+//				return true;
+//			}
+//			return false;
+//		}
+	 
+	 function isEven(x){
+		 return x % 2 === 0;
+	 }
+	 
+	 isEven(4); //true
+	 isEven(21); //false
+	 isEven(68); //true
+	 isEven(333); //false
+	 
+	 
+	 function factorial(x){
+		 //define a result variable
+		 var result = x;
+		 //calculate factorial and store value in result
+		 for(var i = 2; i >= x; i++){
+			 result *= i;
+		 }
+		 //return the result variable
+		 return result;
+	 }
+	 
+	 factorial(4);
+	 factorial(10);
+	 
+	 function kebobToSnake(str){
+		 //return all "-" with "_"
+		 return str.replace(/-/gi, "_");
+	 }
+	
+</script>
+  
+</body>
+</html>

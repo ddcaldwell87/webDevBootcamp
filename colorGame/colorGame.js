@@ -4,28 +4,46 @@ var squares = document.querySelectorAll(".squares");
 var pickedColor = pickColor();
 var colorDisplay = document.querySelector("#colorDisplay");
 var messageDisplay = document.querySelector("#message");
+var stripe = document.querySelector("#stripe");
 var replay = document.querySelector("#replay");
 //displays the pickedColor on the colorDisplay h1
 colorDisplay.textContent = pickedColor;
+startGame();
 //loops through the squares, adds click listeners to each, and compares if the square that was clicked matches the pickedColor square
-for(var i = 0; i < squares.length; i++){
-	//add inital square colors
-	squares[i].style.backgroundColor = colors[i];
-	//add click listeners to squares
-	squares[i].addEventListener("click", function(){
-		//grab color of clicked square
-		var clickedColor = this.style.backgroundColor;
-		//compare color to pickedColor
-		if(clickedColor === pickedColor){
-			changeColor(pickedColor);
-			h1.style.backgroundColor = pickedColor;
-			messageDisplay.textContent = "Correct!"
-		} else {
-			this.style.backgroundColor = "#232323";
-			messageDisplay.textContent = "Try again!";
-		}
-	});
+function startGame(){
+	for(var i = 0; i < squares.length; i++){
+		//add inital square colors
+		squares[i].style.backgroundColor = colors[i];
+		//add click listeners to all squares
+		squares[i].addEventListener("click", function(){
+			//grab color of clicked square
+			var clickedColor = this.style.backgroundColor;
+			//compare color to pickedColor
+			if(clickedColor === pickedColor){
+				changeColor(pickedColor);
+				stripe.style.backgroundColor = pickedColor;
+				messageDisplay.textContent = "Correct!"
+			} else {
+				this.style.backgroundColor = "#232323";
+				messageDisplay.textContent = "Try again!";
+			}
+		});
+	}
 }
+
+//add click listener to Play Again? button
+replay.addEventListener("click", function(){
+	//regenerate colors array to have new random colors
+	colors = generateRandomColor(6);
+	//regenerate a new pickedColor
+	pickedColor = pickColor();
+	//redisplay new pickedColor
+	colorDisplay.textContent = pickedColor;
+	//reset color of stripe header
+	stripe.style.backgroundColor = "cadetblue";
+	//restart game
+	startGame();
+});
 
 //used to change all squares to the pickedColor color
 function changeColor(color){

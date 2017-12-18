@@ -1,5 +1,20 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	background-color: #232323;
+}
+
+button {
+	border: none;
+	text-decoration: none;
+	font-size: 1em;
+}
+
+button:hover {
+	background-color: cornflowerblue;
 }
 
 #container {
@@ -17,8 +32,16 @@ body {
 
 h1 {
 	color: white;
+	text-align: center;
 }
 
-span {
-	color: white;
+#stripe {
+	margin: 0;
+	padding: 75px;
+	background-color: cadetblue;
+}
+
+#buttons {
+	background-color: white;
+	text-align: center
 }

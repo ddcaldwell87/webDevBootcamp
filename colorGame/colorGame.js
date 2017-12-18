@@ -6,10 +6,13 @@ var colorDisplay = document.querySelector("#colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var stripe = document.querySelector("#stripe");
 var replay = document.querySelector("#replay");
+var easyButton = document.querySelector("#easyButton");
+var hardButton = document.querySelector("#hardButton");
 //assigns pickedColor to the square that needs to be clicked to win the game
 var pickedColor = pickColor();
 //displays the pickedColor on the colorDisplay h1
 colorDisplay.textContent = pickedColor;
+//immediatly starts the game
 startGame();
 //loops through the squares, adds click listeners to each, and compares if the square that was clicked matches the pickedColor square
 function startGame(){
@@ -54,7 +57,15 @@ replay.addEventListener("click", function(){
 	colorDisplay.textContent = pickedColor;
 	//reset color of stripe header
 	stripe.style.backgroundColor = "cadetblue";
+	//hide messageDisplay
+	messageDisplay.textContent = "";
 	//restart game
+	startGame();
+});
+
+easyButton.addEventListener("click", function(){
+	colors = generateRandomColor(3);
+	pickColor();
 	startGame();
 });
 

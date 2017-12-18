@@ -1,6 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-family: 'Bungee', cursive;
 }
 
 body {
@@ -11,15 +12,24 @@ button {
 	border: none;
 	text-decoration: none;
 	font-size: 1em;
+	text-transform: uppercase;
+	padding: 0 10px;
+	transition: background-color 0.25s ease-out;
+	color: cadetblue;
+}
+
+button:focus {
+	outline: 0;
 }
 
 button:hover {
 	background-color: cornflowerblue;
+	color: white;
 }
 
 #container {
 	max-width: 600px;
-	margin: 0 auto;
+	margin: 50px auto;
 }
 
 .squares {
@@ -28,20 +38,36 @@ button:hover {
 	padding-bottom: 30%;
 	margin: 1.66%;
 	float: left;
+	border-radius: 20px;
 }
 
 h1 {
 	color: white;
 	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 3px;
 }
 
 #stripe {
 	margin: 0;
-	padding: 75px;
+	padding: 50px;
 	background-color: cadetblue;
 }
 
 #buttons {
+	margin: auto;
 	background-color: white;
-	text-align: center
+	display: flex;
+	justify-content: space-around;
+	height: 25px;
+}
+
+#message {
+	align-self: center;
+	color: cadetblue;
+}
+
+.active {
+	background-color: cornflowerblue;
+	color: white;
 }

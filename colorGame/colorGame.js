@@ -8,7 +8,42 @@ var colors = [
 ];
 
 var squares = document.querySelectorAll(".squares");
+var pickedColor = randomColor();
+var colorDisplay = document.querySelector("#colorDisplay");
+var messageDisplay = document.querySelector("#message");
+
+colorDisplay.textContent = pickedColor;
 
 for(var i = 0; i < squares.length; i++){
+	//add inital suare colors
 	squares[i].style.backgroundColor = colors[i];
+	
+	//add click listeners to squares
+	squares[i].addEventListener("click", function(){
+		//grab color of clicked square
+		var clickedColor = this.style.backgroundColor;
+		//compare color to pickedColor
+		if(clickedColor === pickedColor){
+			changeColor(pickedColor);
+			messageDisplay.textContent = "Correct!"
+		} else {
+			this.style.backgroundColor = "#232323";
+			messageDisplay.textContent = "Try again!";
+		}
+	});
+}
+
+function changeColor(color){
+	//loop through all the squares
+	for(var i = 0; i < squares.length; i++){
+		//change each color to match given color
+		squares[i].style.backgroundColor = color;
+	}
+}
+
+function randomColor(){
+	//create random number
+	var random = Math.floor(Math.random() * colors.length);
+	//return random number
+	return colors[random];
 }

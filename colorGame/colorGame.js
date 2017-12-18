@@ -1,11 +1,13 @@
+//an array that holds a set number of random color values (6)
 var colors = generateRandomColor(6);
 //grab selectors
 var squares = document.querySelectorAll(".squares");
-var pickedColor = pickColor();
 var colorDisplay = document.querySelector("#colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var stripe = document.querySelector("#stripe");
 var replay = document.querySelector("#replay");
+//assigns pickedColor to the square that needs to be clicked to win the game
+var pickedColor = pickColor();
 //displays the pickedColor on the colorDisplay h1
 colorDisplay.textContent = pickedColor;
 startGame();
@@ -20,11 +22,22 @@ function startGame(){
 			var clickedColor = this.style.backgroundColor;
 			//compare color to pickedColor
 			if(clickedColor === pickedColor){
+				//changes all squares to the pickedColor color
 				changeColor(pickedColor);
+				//changes the background of stripe to the pickedColor color
 				stripe.style.backgroundColor = pickedColor;
+				//displays Correct!
 				messageDisplay.textContent = "Correct!"
+				//changes New Colors to Play Again?
+				replay.textContent = "Play Again?";
+				//if Play Again? is clicked, change it back to read New Colors
+				replay.addEventListener("click", function(){
+					replay.textContent = "New Colors";
+				});
 			} else {
+				//turn clicked squares color to match the background
 				this.style.backgroundColor = "#232323";
+				//display Try Again!
 				messageDisplay.textContent = "Try again!";
 			}
 		});

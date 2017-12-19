@@ -42,10 +42,6 @@ button:hover {
 	transition: all 0.5s;
 }
 
-.squares:active {
-	transition: background-color 0.25s ease-out;
-}
-
 h1 {
 	color: white;
 	text-align: center;

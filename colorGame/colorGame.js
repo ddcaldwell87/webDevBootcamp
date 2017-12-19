@@ -1,5 +1,7 @@
+//default number of squears value
+var numOfSquares = 6;
 //an array that holds a set number of random color values (6)
-var colors = generateRandomColor(6);
+var colors = generateRandomColor(numOfSquares);
 //grab selectors
 var squares = document.querySelectorAll(".squares");
 var colorDisplay = document.querySelector("#colorDisplay");
@@ -50,7 +52,7 @@ function startGame(){
 //add click listener to Play Again? button
 replay.addEventListener("click", function(){
 	//regenerate colors array to have new random colors
-	colors = generateRandomColor(6);
+	colors = generateRandomColor(numOfSquares);
 	//regenerate a new pickedColor
 	pickedColor = pickColor();
 	//redisplay new pickedColor
@@ -64,9 +66,48 @@ replay.addEventListener("click", function(){
 });
 
 easyButton.addEventListener("click", function(){
-	colors = generateRandomColor(3);
-	pickColor();
-	startGame();
+	//hide message
+	messageDisplay.textContent = "";
+	//highlights easy button
+	easyButton.classList.add("active");
+	//removes highlight from hard button
+	hardButton.classList.remove("active");
+	//change the number of squares generated to 3
+	numOfSquares = 3;
+	colors = generateRandomColor(numOfSquares);
+	//generate a new pickedColor
+	pickedColor = pickColor();
+	//display new pickedColor
+	colorDisplay.textContent = pickedColor;
+	//loop through squares and assign new colors to top three squares while hiding bottom three
+	for(var i = 0; i < squares.length; i++){
+		if(colors[i]){
+			squares[i].style.backgroundColor = colors[i];
+		} else {
+			squares[i].style.display = "none";
+		}
+	}
+});
+
+hardButton.addEventListener("click", function(){
+	//hide message
+	messageDisplay.textContent = "";
+	//highlights hard button
+	hardButton.classList.add("active");
+	//removes highlight from easy button
+	easyButton.classList.remove("active");
+	//reassignes 6 to be number of squares generated
+	numOfSquares = 6;
+	colors = generateRandomColor(numOfSquares);
+	//generate a new pickedColor
+	pickedColor = pickColor();
+	//display new pickedColor
+	colorDisplay.textContent = pickedColor;
+	//loop through squares and assign a new color to them while displaying hidden squares
+	for(var i = 0; i < squares.length; i++){
+		squares[i].style.backgroundColor = colors[i];
+		squares[i].style.display = "block";
+	}
 });
 
 //used to change all squares to the pickedColor color
@@ -109,4 +150,3 @@ function randomColor(){
 	//return a string of all three colors together
 	return "rgb(" + red + ", " + green + ", " + blue + ")";
 }
-

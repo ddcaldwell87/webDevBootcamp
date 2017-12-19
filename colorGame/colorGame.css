@@ -23,7 +23,7 @@ button:focus {
 }
 
 button:hover {
-	background-color: cornflowerblue;
+	background-color: cadetblue;
 	color: white;
 }
 
@@ -41,6 +41,10 @@ button:hover {
 	border-radius: 20px;
 }
 
+.squares:active {
+	transition: background-color 0.25s ease-out;
+}
+
 h1 {
 	color: white;
 	text-align: center;
@@ -52,6 +56,11 @@ h1 {
 	margin: 0;
 	padding: 50px;
 	background-color: cadetblue;
+}
+
+#stripe p {
+	color: white;
+	text-align: center;
 }
 
 #buttons {
@@ -68,6 +77,6 @@ h1 {
 }
 
 .active {
-	background-color: cornflowerblue;
+	background-color: cadetblue;
 	color: white;
 }

@@ -39,10 +39,7 @@ button:hover {
 	margin: 1.66%;
 	float: left;
 	border-radius: 20px;
-}
-
-.squares:active {
-	transition: background-color 0.25s ease-out;
+	transition: all 0.5s;
 }
 
 h1 {

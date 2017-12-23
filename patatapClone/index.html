@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patatap Clone</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script type="text/javascript" src="assets/js/paper-full.js"></script>
+  <script type="text/paperscript" canvas="myCanvas">
+    
+    function randomCircles(){
+      var circle = new Path.Circle(new Point(1000, 1000) * Point.random(), 10);
+      circle.fillColor = "purple";
+    }
+    
+    for(var i = 0; i < 100; i++){
+      randomCircles();
+    }
+    
+</script>
+</head>
+<body>
+  <canvas id="myCanvas" resize></canvas>
+</body>
+</html>

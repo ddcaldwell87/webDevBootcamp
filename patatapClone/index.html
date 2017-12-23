@@ -5,16 +5,32 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <script type="text/javascript" src="assets/js/paper-full.js"></script>
   <script type="text/paperscript" canvas="myCanvas">
-    
+    /*
+    // my solution
     function randomCircles(){
-      var circle = new Path.Circle(new Point(1000, 1000) * Point.random(), 10);
-      circle.fillColor = "purple";
+      new Path.Circle(new Point(1000, 1000) * Point.random(), 10).fillColor = "purple";;
     }
     
     for(var i = 0; i < 100; i++){
       randomCircles();
     }
     
+    
+    //not my solution
+    for(var x = 0; x < 1000; x += 100){
+      for(var y = 0; y < 1000; y += 100){
+        new Path.Circle(new Point(x, y), 10).fillColor = "red";
+      }
+    }
+    */
+    
+    
+    function onKeyDown(event) {
+      var maxPoint = new Point(view.size.width, view.size.height);
+      var randomPoint = Point.random();
+      var point = maxPoint * randomPoint;
+      new Path.Circle(point, 10).fillColor = "red";
+    }
 </script>
 </head>
 <body>
